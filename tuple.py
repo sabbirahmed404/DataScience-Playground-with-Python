@@ -9,9 +9,7 @@ students = (
 def student_sort(student):
     return student[2]
 
-sorted_students_1 = sorted(students, key=lambda student: student[2])
 sorted_students = sorted(students, key=student_sort)
 
-print("sorted_students_1: ", sorted_students_1)
-print("sorted_students: ", sorted_students)
-
+for student in sorted_students:
+    print(student)
