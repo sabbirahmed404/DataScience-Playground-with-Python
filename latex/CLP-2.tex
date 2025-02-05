@@ -1,0 +1,538 @@
+\documentclass[12pt]{article}
+\UseRawInputEncoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper, left=3.17cm, right=3.17cm, top=2.54cm, bottom=2.54cm]{geometry}
+\usepackage{mathptmx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{chemformula}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{tabularx,booktabs}
+\newcolumntype{C}{>{\centering\arraybackslash}X} % centered version of "X" type
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\usepackage{comment}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{cite}
+\usepackage[colorlinks, linkcolor=black, anchorcolor=black, citecolor=black]{hyperref}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{textcomp}  % For special characters
+\usepackage{fontawesome5}  % For GitHub icon
+\setlength{\parskip}{0.5em}
+\title{Python Programming: Data Structure and Analysis Implementation}
+\author{Your Name}
+\date{\today}
+
+%copyright at footer
+\usepackage{fancyhdr}
+\fancyhf{}
+\rfoot{%
+  \footnotesize
+  \textcopyright~Dept. of Computer Science and Engineering, GUB\\
+
+ }
+%\pagestyle{fancy}
+
+% Python code styling
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+ \input{title/title.tex}
+ %   \tableofcontents
+  
+%\tableofcontents
+\newpage
+
+\section{Introduction}
+This report presents a comprehensive implementation of various Python programming concepts, focusing on data structures, numerical computations, data analysis, and visualization. The implementations demonstrate proficiency in using essential Python libraries such as NumPy, Pandas, and Matplotlib.
+
+\vspace{1em}
+\noindent
+More information on Github repo: \href{https://github.com/sabbirahmed404/Python-Practice}{\faGithub}
+
+\section{Basic Python Data Structures}
+
+\subsection{List Operations\hfill\href{https://github.com/sabbirahmed404/Python-Practice/blob/main/list.py}{\faGithub}}
+\subsubsection{Objective}
+Implementation of list operations to remove duplicates and sort numbers in ascending order, demonstrating fundamental list manipulation techniques in Python.
+
+\subsubsection{Implementation}
+% Code will be inserted here
+\begin{lstlisting}[language=Python, caption=List Operations Implementation]
+numlist = [3, 9, 4, 2, 4, 1, 5, 6, 10, 8, 7, 9]
+
+res = []
+
+for i in numlist:
+    if i not in res:
+        res.append(i)
+
+res.sort()
+print("result 1: ", res)
+
+print("result 2: ", sorted(list(set(numlist))))
+\end{lstlisting}
+
+\subsubsection{Output}
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=.75\linewidth]{list_2.png}
+    \caption{List}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsection{Set Operations\hfill\href{https://github.com/sabbirahmed404/Python-Practice/blob/main/set.py}{\faGithub}}
+\subsubsection{Objective}
+Demonstration of set operations to find common elements between two lists, showcasing the efficiency of set operations in Python.
+
+\subsubsection{Implementation}
+\begin{lstlisting}[language=Python, caption=Set Operations Implementation]
+numlist_1 = [3, 9, 4, 2, 4, 1, 5, 6, 10, 8, 7, 9]
+numlist_2 = [2, 2, 3, 2, 5, 6, 0, 8, 12 ]
+
+set_1 = set(numlist_1)
+set_2 = set(numlist_2)
+
+method_1 = list(set_1 & set_2)
+method_2 = list(set_1.intersection(set_2))
+
+print("method_1: ", method_1)
+print("method_2: ", method_2)
+\end{lstlisting}
+
+\subsubsection{Output}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{set.png}
+    \caption{Set}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsection{Tuple Operations\hfill\href{https://github.com/sabbirahmed404/Python-Practice/blob/main/tuple.py}{\faGithub}}
+\subsubsection{Objective}
+Creation and manipulation of student records using tuples, demonstrating the immutable nature of tuples and sorting operations.
+
+\subsubsection{Implementation}
+\begin{lstlisting}[language=Python, caption=Tuple Operations Implementation]
+students = (
+    ("Sabbir", 22, 3.6),
+    ("Jiyon", 23, 3.8),
+    ("Ishaq", 24, 3.7),
+    ("Rakib", 22, 3.5),
+    ("Sakib", 23, 3.6)
+)
+
+def student_sort(student):
+    return student[2]
+
+sorted_students = sorted(students, key=student_sort)
+
+for student in sorted_students:
+    print(student)
+
+\end{lstlisting}
+
+\subsubsection{Output}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{tuple.png}
+    \caption{Tuple}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsection{Dictionary Operations\hfill\href{https://github.com/sabbirahmed404/Python-Practice/blob/main/Dictionary.py}{\faGithub}}
+\subsubsection{Objective}
+Implementation of a word occurrence counter using dictionaries, showcasing text analysis capabilities.
+
+\subsubsection{Implementation}
+\begin{lstlisting}[language=Python, caption=Dictionary Operations Implementation]
+text = "Hello there, I'm Sabbir Ahmed, a passionate and curious individual from Dhaka, Bangladesh. As a Computer Science and Engineering student at Green University of Bangladesh, I am constantly seeking new opportunities to expand my knowledge and skills in the software engineering and data science field."
+
+words = text.split()
+
+def word_count(words):
+    word_count = {}  
+    for word in words:
+        if word in word_count:
+            word_count[word] += 1
+        else:
+            word_count[word] = 1
+    return word_count
+
+text_dict = word_count(words)
+
+
+for i in text_dict:
+    print(i, text_dict[i])
+
+
+\end{lstlisting}
+
+\subsubsection{Output}
+\begin{verbatim}
+    Hello 1
+    there, 1
+    I'm 1
+    Sabbir 1
+    Ahmed, 1
+    a 2
+    passionate 1
+    and 4
+    curious 1
+    individual 1
+    from 1
+    Dhaka, 1
+    Bangladesh. 1
+    As 1
+    Computer 1
+    Science 1
+    Engineering 1
+    student 1
+    at 1
+    Green 1
+    University 1
+    of 1
+    Bangladesh, 1
+    I 1
+    am 1
+    constantly 1
+    seeking 1
+    new 1
+    opportunities 1
+    to 1
+    expand 1
+    my 1
+    knowledge 1
+    skills 1
+    in 1
+    the 1
+    software 1
+    engineering 1
+    data 1
+    science 1
+    field. 1
+\end{verbatim}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{DIC.png}
+    \caption{Python Dictionary}
+    \label{fig:enter-label}
+\end{figure}
+
+\section{NumPy Operations}
+
+\subsection{Matrix Operations\hfill\href{https://github.com/sabbirahmed404/Python-Practice/blob/main/numpy_1.py}{\faGithub}}
+\subsubsection{Objective}
+Generation and manipulation of a 5x5 random integer matrix, demonstrating NumPy's capabilities for matrix operations.
+
+\subsubsection{Technical Details}
+The implementation uses:
+\begin{itemize}
+    \item np.random.randint for matrix generation
+    \item np.sum with axis parameter for row-wise calculations
+\end{itemize}
+
+\subsubsection{Implementation}
+\begin{lstlisting}[language=Python, caption=Matrix Operations Implementation]
+import numpy as np
+
+matrix = np.random.randint(0, 10, size=(5, 5))
+
+row_sums = np.sum(matrix, axis=1)
+
+
+print("Matrix:")
+print(matrix)
+print("\nRow-wise sums:")
+print(row_sums)
+\end{lstlisting}
+
+\subsubsection{Output}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{numpy.png}
+    \caption{Numpy: row wise sum}
+    \label{fig:enter-label}
+\end{figure}
+\subsection{Array Normalization\hfill\href{https://github.com/sabbirahmed404/Python-Practice/blob/main/numpy_2.py}{\faGithub}}
+\subsubsection{Objective}
+Generation and normalization of random arrays, demonstrating advanced array operations using NumPy.
+
+\subsubsection{Technical Details}
+The implementation includes:
+\begin{itemize}
+    \item Generation of 100 random values using np.random.rand
+    \item Normalization using the formula: $(x - min(x)) / (max(x) - min(x))$
+\end{itemize}
+
+\subsubsection{Implementation}
+\begin{lstlisting}[language=Python, caption=Array Normalization Implementation]
+import numpy as np
+
+arr = np.random.rand(100)
+
+print("Original array:")
+print(arr)
+print("\nOriginal array min:", np.min(arr))
+print("Original array max:", np.max(arr))
+
+normalized_arr = (arr - np.min(arr)) / (np.max(arr) - np.min(arr))
+
+print("\nNormalized array:")
+print(normalized_arr)
+print("\nNormalized array min:", np.min(normalized_arr))
+print("Normalized array max:", np.max(normalized_arr))
+\end{lstlisting}
+
+\subsubsection{Output}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{numpy2.png}
+    \caption{Numpy Matrix Normalization}
+    \label{fig:enter-label}
+\end{figure}
+
+\section{Pandas Data Analysis}
+
+\subsection{Revenue Analysis\hfill\href{https://github.com/sabbirahmed404/Python-Practice/blob/main/pandas_1.py}{\faGithub}}
+\subsubsection{Objective}
+Analysis of furniture sales data using Pandas, demonstrating data grouping and aggregation techniques.
+
+\subsubsection{Technical Details}
+The implementation features:
+\begin{itemize}
+    \item Data grouping by product category
+    \item Revenue and sales calculations
+    \item Advanced aggregation techniques
+\end{itemize}
+
+\subsubsection{Implementation}
+\begin{lstlisting}[language=Python, caption=Revenue Analysis Implementation]
+import pandas as pd
+
+df = pd.read_csv('data/Furniture.csv')
+
+revenue_by_product = df.groupby('category').agg({
+    'revenue': 'sum',
+    'sales': 'sum',
+}).round(2)
+
+print("\nDetailed Summary by Product Category:")
+print(revenue_by_product)
+
+\end{lstlisting}
+
+\subsubsection{Output}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{Sales Revenue.png}
+    \caption{Sales Revenue}
+    \label{fig:enter-label}
+\end{figure}
+
+
+\subsection{Missing Value Treatment\hfill\href{https://github.com/sabbirahmed404/Python-Practice/blob/main/pandas_2.py}{\faGithub}}
+\subsubsection{Objective}
+Handling missing values in furniture data, demonstrating data cleaning and preprocessing techniques.
+
+\subsubsection{Technical Details}
+Key features include:
+\begin{itemize}
+    \item Null value detection using isnull()
+    \item Numeric column separation
+    \item Mean calculation and imputation
+\end{itemize}
+
+\subsubsection{Implementation}
+\begin{lstlisting}[language=Python, caption=Missing Value Treatment Implementation]
+import pandas as pd
+
+df = pd.read_csv('data/Furniture copy.csv')
+
+print("Null values before filling:")
+print(df.isnull().sum())
+
+numeric_cols = df.select_dtypes(include=['float64', 'int64']).columns
+column_means = df[numeric_cols].mean()
+
+df_filled = df.copy()
+df_filled[numeric_cols] = df_filled[numeric_cols].fillna(column_means)
+
+print("\nNull values after filling:")
+print(df_filled.isnull().sum())
+
+df_filled.to_csv('data/Furniture_filled.csv', index=False)
+
+original_null_rows = df[df.isnull().any(axis=1)]
+filled_null_rows = df_filled.loc[original_null_rows.index]
+print("\nSample of filled rows (before and after):")
+print("\nBefore filling:")
+print(original_null_rows)
+print("\nAfter filling:")
+print(filled_null_rows)
+\end{lstlisting}
+\clearpage
+\subsubsection{Output}
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\linewidth]{hhh.png}
+    \caption{Missing Value Before Filling}
+    \label{fig:enter-label}
+\end{figure}
+
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\linewidth]{asa.png}
+    \caption{Missing Value after Filling}
+    \label{fig:enter-label}
+\end{figure}
+
+
+\section{Data Visualization with Matplotlib}
+
+\subsection{Temperature Variation Analysis\hfill\href{https://github.com/sabbirahmed404/Python-Practice/blob/main/matplotlib_1.py}{\faGithub}}
+\subsubsection{Objective}
+Visualization of weekly temperature variations using line plots, demonstrating time series data visualization.
+
+\subsubsection{Technical Details}
+Implementation features:
+\begin{itemize}
+    \item DateTime conversion and processing
+    \item Daily temperature aggregation
+    \item Custom plot styling and formatting
+\end{itemize}
+
+\subsubsection{Implementation}
+\begin{lstlisting}[language=Python, caption=Temperature Analysis Implementation]
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = pd.read_csv('data/first_week_weather.csv')
+
+data['Date_Time'] = pd.to_datetime(data['Date_Time'])
+
+daily_temps = data.groupby(data['Date_Time'].dt.date)['Temperature_C'].mean().reset_index()
+
+daily_temps = daily_temps.sort_values('Date_Time').head(7)
+
+plt.figure(figsize=(10, 5))
+plt.plot(daily_temps['Date_Time'], daily_temps['Temperature_C'], 
+         marker='o', linestyle='-', color='b', linewidth=2, markersize=8)
+
+plt.title('Average Daily Temperature Variations Over a Week')
+plt.xlabel('Date')
+plt.ylabel('Temperature (\textdegree C)')
+plt.xticks(rotation=45)
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+\end{lstlisting}
+\newpage
+\subsubsection{Output}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{Matplotlib_Figure_1.png}
+    \caption{Line Chart of Weekday Temperature}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsection{Regional Sales Analysis\hfill\href{https://github.com/sabbirahmed404/Python-Practice/blob/main/matplotlib_2.py}{\faGithub}}
+\subsubsection{Objective}
+Creation of bar charts for regional Mac sales analysis, demonstrating categorical data visualization.
+
+\subsubsection{Technical Details}
+Key features include:
+\begin{itemize}
+    \item Bar chart creation with value labels
+    \item Custom formatting and styling
+    \item Grid lines and layout optimization
+\end{itemize}
+
+\subsubsection{Implementation}
+\begin{lstlisting}[language=Python, caption=Regional Sales Analysis Implementation]
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = pd.read_csv('data/apple_sales_2024.csv')
+
+regional_sales = data.groupby('Region')['Mac Sales (in million units)'].mean()
+
+plt.figure(figsize=(12, 6))
+bars = plt.bar(regional_sales.index, regional_sales.values)
+
+plt.title('Average Mac Sales by Region', fontsize=14, pad=20)
+plt.xlabel('Region', fontsize=12)
+plt.ylabel('Average Mac Sales (Million Units)', fontsize=12)
+
+plt.ylim(5, 6)
+
+plt.xticks(rotation=45)
+
+for bar in bars:
+    height = bar.get_height()
+    plt.text(bar.get_x() + bar.get_width()/2., height,
+             f'{height:.2f}M',
+             ha='center', va='bottom')
+
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+plt.tight_layout()
+
+plt.show()
+
+\end{lstlisting}
+
+\subsubsection{Output}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{Matplotlib_Figure_2.png}
+    \caption{Sales on Regions}
+    \label{fig:enter-label}
+\end{figure}
+
+\section{Conclusion}
+This report demonstrates the implementation of various Python programming concepts, from basic data structures to advanced data analysis and visualization techniques. The implementations showcase the versatility of Python and its libraries in handling different types of data processing and analysis tasks.
+
+\section{References}
+\begin{enumerate}
+    \item NumPy Documentation - \url{https://numpy.org/doc/}
+    \item Pandas Documentation - \url{https://pandas.pydata.org/docs/}
+    \item Matplotlib Documentation - \url{https://matplotlib.org/stable/contents.html}
+    \item Python Documentation - \url{https://docs.python.org/3/}
+    \item GeeksforGeeks - Python Lists - \url{https://www.geeksforgeeks.org/python-ways-to-remove-duplicates-from-list/}
+    \item W3Schools - Python Sets - \url{https://www.w3schools.com/python/ref_set_intersection.asp}
+\end{enumerate}
+
+\end{document}

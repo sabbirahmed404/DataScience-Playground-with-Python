@@ -9,5 +9,3 @@ revenue_by_product = df.groupby('category').agg({
 
 print("\nDetailed Summary by Product Category:")
 print(revenue_by_product)
-
-print(df[df.isnull()])

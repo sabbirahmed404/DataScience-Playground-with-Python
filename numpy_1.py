@@ -1,7 +1,11 @@
 import numpy as np
 
-arr = np.array([1, 2, 3, 4, 5])
+matrix = np.random.randint(0, 10, size=(5, 5))
 
-print(arr)
+row_sums = np.sum(matrix, axis=1)
 
-print(type(arr))
+
+print("Matrix:")
+print(matrix)
+print("\nRow-wise sums:")
+print(row_sums)

@@ -11,7 +11,6 @@ def word_count(words):
             word_count[word] = 1
     return word_count
 
-# Directly assign the result of word_count to text_dict
 text_dict = word_count(words)
 
 
