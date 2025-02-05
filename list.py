@@ -6,7 +6,7 @@ for i in numlist:
     if i not in res:
         res.append(i)
 
-print(res)
+res.sort()
+print("result 1: ", res)
 
-
-# print(sorted(list(set(numlist))))
+print("result 2: ", sorted(list(set(numlist))))
