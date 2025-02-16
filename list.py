@@ -9,4 +9,4 @@ for i in numlist:
 res.sort()
 print("result 1: ", res)
 
-print("result 2: ", sorted(list(set(numlist))))
+print("result ", sorted(list(set(numlist))))
