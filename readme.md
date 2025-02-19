@@ -85,7 +85,7 @@ This repository contains implementations of various Python programming concepts,
 ![Regional Mac Sales Analysis](latex/Figure_2.png)
 *Figure: Bar chart comparing average Mac sales across different regions*
 
-## Datasets
+## Dataset
 - Weather Data: `first_week_weather.csv` (Source: Kaggle Weather Dataset)
 - Apple Sales Data: `apple_sales_2024.csv` (Source: Kaggle Sales Data)
 - Furniture Sales: `Furniture.csv` (Source: Kaggle Retail Dataset)
