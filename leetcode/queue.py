@@ -7,3 +7,5 @@ print(f'Initial queue {queue}')
 
 queue.pop(0)
 print(f'After pop the queue {queue}')
+
+
