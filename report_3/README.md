@@ -17,9 +17,9 @@ Graph Coloring is a well-known NP-complete problem where the goal is to assign c
 
 The implementation uses a backtracking algorithm with the following components:
 
-1. **Backtracking Function (`m_coloring`)**: Recursively tries different color assignments for each vertex
-2. **Safety Check (`is_safe`)**: Verifies if a color can be assigned to a vertex without violating the constraint that adjacent vertices must have different colors
-3. **Input Parsing (`read_input`)**: Reads the graph structure and constraints from an input file
+- **Backtracking Function (`m_coloring`)**: Recursively tries different color assignments for each vertex
+- **Safety Check (`is_safe`)**: Verifies if a color can be assigned to a vertex without violating the constraint that adjacent vertices must have different colors
+- **Input Parsing (`read_input`)**: Reads the graph structure and constraints from an input file
 
 The time complexity of this algorithm is O(m^n) in the worst case, where m is the number of colors and n is the number of vertices.
 
